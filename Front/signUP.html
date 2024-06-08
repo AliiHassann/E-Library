@@ -6,9 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign Up Page</title>
     <link rel="stylesheet" href="style/LoginStyle.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 
-<body>
+<body>      
     <div class="container">
         <h2>Sign Up</h2>
         <form id="signup-form">
@@ -32,7 +33,7 @@
                 <label for="is-admin">Admin:</label>
                 <input type="checkbox" id="is-admin" name="is-admin">
             </div>
-            <button onclick="SignUP()" type="button">Sign Up</button>
+            <button id="register" type="button">Sign Up</button>
         </form>
         <p>Already have an account? <a href="login.html">Login</a></p>
         <button><a href="index.html">Home</a></button>
