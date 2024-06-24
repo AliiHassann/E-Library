@@ -96,7 +96,7 @@ th {
 }
 
 
-.nav-links li:nth-child(2) a {
+/* .nav-links li:nth-child(2) a {
     color: #fff;
     text-decoration: none;
     font-size: 18px;
@@ -113,4 +113,4 @@ th {
 
 .nav-links li:nth-child(2) a:active {
     background-color: #0056b3;
-}
+} */

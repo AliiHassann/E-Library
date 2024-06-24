@@ -87,7 +87,7 @@ button:hover {
 }
 
 /* View Available Books link */
-.nav-links li:nth-child(2) a {
+/* .nav-links li:nth-child(2) a {
     color: #fff;
     text-decoration: none;
     font-size: 18px;
@@ -101,5 +101,5 @@ button:hover {
 .nav-links li:nth-child(2) a:hover {
     background-color: #0056b3; 
     color: black; 
-}
+} */
 

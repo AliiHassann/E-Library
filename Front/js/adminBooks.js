@@ -35,7 +35,7 @@ function displayBooks(arr) {
     <td>${arr[i].bookName}</td>
     <td>${arr[i].category.name}</td>
     <td>${arr[i].description}</td>
-    <td>${arr[i].userBorrow == null ? "No Borrow" : arr[i].userBorrow}</td>
+    <td>${arr[i].userBorrow == null ? "No Borrow" : arr[i].userBorrow.username}</td>
     <td><button class="updateB" onclick="updateB(${
       arr[i].ID
     })">Update</button></td>
@@ -173,3 +173,8 @@ function clearUpdateForm() {
   document.getElementById("newBookCategory").value = "";
   document.getElementById("Newdescription").value = "";
 }
+document.getElementById("logout").addEventListener("click", (e) => {
+  localStorage.removeItem("user_token");
+  e.preventDefault();
+  window.location.href = "index.html";
+});

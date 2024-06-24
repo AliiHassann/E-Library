@@ -56,3 +56,58 @@ input[type="text"]:focus {
     border-color: #007bff;
     box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
 }
+.input-group {
+    width: 80%;
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Space between the select and input */
+    padding: 10px;
+    border-radius: 5px;
+    margin: 0 auto;/* Light background for contrast */
+}
+
+.input-group select, .input-group input {
+    padding: 10px;
+    border-radius: 5px;
+    outline: none;
+    font-size: 16px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.input-group select {
+    width: 20%; /* Fixed width for the dropdown */
+    background-color: #fff; /* White background for dropdown */
+}
+
+.input-group input {
+    flex: 1; /* Grow to fill available space */
+    background-color: #fff; /* White background for input */
+}
+
+.input-group select:focus, .input-group input:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+.input-group input::placeholder {
+    color: #aaa;
+}
+
+@media (max-width: 480px) {
+    .input-group {
+        flex-direction: column;
+    }
+
+    .input-group select, .input-group input {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .input-group input {
+        margin-bottom: 0;
+    }
+}
+.matchedsearch{
+    background-color: green;
+    color: #fff;
+}

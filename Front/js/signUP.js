@@ -4,6 +4,7 @@ const confirmPassword = document.getElementById("confirm-password");
 const email = document.getElementById("email");
 const isAdmin = document.getElementById("is-admin");
 
+
 function validateUsername(username) {
   const nameregex = /^[A-Za-z]{3,10}$/;
   return nameregex.test(username);
@@ -149,7 +150,7 @@ function register() {
     formdata.append("username", UN.value);
     formdata.append("password", pass.value);
     formdata.append("confirmPassword", confirmPassword.value);
-    formdata.append("is_admin", isAdmin.value);
+    formdata.append("is_admin", isAdmin.checked);
 
     const requestOptions = {
       method: "POST",

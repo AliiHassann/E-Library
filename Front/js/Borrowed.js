@@ -9,14 +9,14 @@ function displayBooks(arr) {
     <td>${arr[i].category.name}</td>
     <td>${arr[i].description}</td>
     <td>
-  <button onclick="BorrowBook(${arr[i].ID})" class="borrow-button">Borrow </button>
+  <button onclick="ReturnBook(${arr[i].ID})" class="borrow-button">Return </button>
     </td>
     </tr>`;
   }
   BTable.innerHTML = temp;
 }
-
-function getAllAvailableBools() {
+document.addEventListener("DOMContentLoaded", getBorrowedBooks);
+function getBorrowedBooks() {
   const userToken = localStorage.getItem("user_token");
   const myHeaders = new Headers();
   myHeaders.append("Authorization", `Bearer ${userToken}`);
@@ -32,7 +32,7 @@ function getAllAvailableBools() {
   };
 
   fetch(
-    "http://127.0.0.1:8000///api/app/getAllbooks/?is_avalible_only=true",
+    "http://127.0.0.1:8000//api/app/getAllBorrowedBooksByUser/",
     requestOptions
   )
     .then((response) => response.json())
@@ -43,7 +43,7 @@ function getAllAvailableBools() {
     .catch((error) => console.error(error));
 }
 
-function BorrowBook(id) {
+function ReturnBook(id) {
   const userToken = localStorage.getItem("user_token");
   const myHeaders = new Headers();
   myHeaders.append("Authorization", `Bearer ${userToken}`);
@@ -58,25 +58,23 @@ function BorrowBook(id) {
     redirect: "follow",
   };
 
-  fetch(`http://127.0.0.1:8000//api/app/borrowBook/${id}/`, requestOptions)
+  fetch(`http://127.0.0.1:8000//api/app/returnBookBack/${id}/`, requestOptions)
     .then((response) => response.json())
     .then((result) => {
       console.log(result);
       Swal.fire({
-        title: "Success",
-        text: `Book Borrowed Successfully`,
+        title: "Success!",
+        text: `Book returned successfully`,
         icon: "success",
         confirmButtonText: "OK",
       });
-      getAllAvailableBools();
+      getBorrowedBooks();
     })
     .catch((error) => console.error(error));
 }
 
-document.addEventListener("DOMContentLoaded", getAllAvailableBools);
-
 document.getElementById("logout").addEventListener("click", (e) => {
-  localStorage.removeItem("user_token");
-  e.preventDefault();
-  window.location.href = "index.html";
-});
+    localStorage.removeItem("user_token");
+    e.preventDefault();
+    window.location.href = "index.html";
+  });
